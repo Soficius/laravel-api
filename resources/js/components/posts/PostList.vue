@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="text-center">Posts</h2>
-        <AppLoader v-if="isLoading " class="d-flex justify-content-center"/>
+        <AppLoader v-if="isLoading "/>
         <div v-else>
             <div v-if="posts.length">
                 <PostCard  v-for="post in posts" :key="post.id" :post="post"/>
