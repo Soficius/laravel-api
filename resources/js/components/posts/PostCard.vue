@@ -1,6 +1,6 @@
 <template>
     <section class="d-flex justify-content-center">
-        <div class="card mb-5" style="max-width: 540px; min-width: 800px">
+        <div class="card mb-5 mt-3" style="max-width: 540px; min-width: 800px">
             <div class="row no-gutters">
                 <div class="col-md-4">
                     <img :src="post.image" :alt="post.title" class="w-100 h-100">
