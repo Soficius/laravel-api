@@ -2018,9 +2018,40 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _posts_PostCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../posts/PostCard.vue */ "./resources/js/components/posts/PostCard.vue");
+/* harmony import */ var _AppLoader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../AppLoader.vue */ "./resources/js/components/AppLoader.vue");
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostDatail",
-  components: {}
+  components: {
+    PostCard: _posts_PostCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    AppLoader: _AppLoader_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      post: null,
+      isLoading: false
+    };
+  },
+  methods: {
+    fetchPost: function fetchPost() {
+      var _this = this;
+
+      this.isLoading = true; // prendiamo il post cliccato
+
+      axios.get("http://localhost:8000/api/posts" + this.$route.params.id).then(function (res) {
+        _this.post = res.data;
+      })["catch"](function (err) {
+        console.log(err);
+      }).then(function () {
+        _this.isLoading = false;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.fetchPost();
+  }
 });
 
 /***/ }),
@@ -2358,17 +2389,16 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", {
     staticClass: "post-detail"
-  }, [_c("h1", [_vm._v("nfcknckdn")])]);
-}];
+  }, [_c("h1", [_vm._v("Dettaglio Post")]), _vm._v(" "), _vm.isLoading ? _c("AppLoader") : !_vm.isLoading && _vm.post ? _c("PostCard", {
+    attrs: {
+      post: _vm.post
+    }
+  }) : _vm._e()], 1);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -2419,7 +2449,10 @@ var render = function render() {
     staticClass: "btn btn-primary",
     attrs: {
       to: {
-        name: "post-detail"
+        name: "post-detail",
+        params: {
+          id: _vm.post.id
+        }
       }
     }
   }, [_vm._v("Vedi")])], 1)])])])]);
