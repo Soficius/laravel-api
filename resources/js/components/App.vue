@@ -2,14 +2,13 @@
     <div class="content">
         <AppHeader :title="title" />
         <main class="container mt-4">
-            <HomePage/>
+            <router-view></router-view>
         </main>
     </div>
 </template>
 
 <script>
 import AppHeader from './AppHeader.vue';
-import HomePage from './pages/HomePage.vue';
 export default {
     name: "App",
     data() {
@@ -19,7 +18,6 @@ export default {
     },
     components: {
     AppHeader,
-    HomePage
 }
 };
 </script>

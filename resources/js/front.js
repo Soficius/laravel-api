@@ -7,9 +7,12 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
+import router from './router.js'
 import App from './components/App.vue'
 
 const root = new Vue({
+    router:router,
     el: '#root',
-    render: h => h(App)
+    render: h => h(App),
+    // il primo è la chiave, il secondo la nome della variabile che posso anche modificare a mio piacimento
 });
