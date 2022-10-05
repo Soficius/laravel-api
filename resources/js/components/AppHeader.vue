@@ -10,17 +10,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <!-- non utlizziamo il tag a ma il componente
+                        router-link(ci viene fornito automaticamente con vue router)
+                        perchè l'attributo per cambiare la pagina non è href ma to.
+                         -->
+                        <router-link class="nav-link" :to="{name:'home'}">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li> -->
+                        <router-link class="nav-link" :to="{name:'about'}">About us</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" :to="{name:'contacts'}">Contacts</router-link>
+                    </li>
                 </ul>
             </div>
         </nav>
