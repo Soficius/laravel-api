@@ -2040,7 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.isLoading = true; // prendiamo il post cliccato
 
-      axios.get("http://localhost:8000/api/posts" + this.$route.params.id).then(function (res) {
+      axios.get("http://localhost:8000/api/posts/" + this.$route.params.id).then(function (res) {
         _this.post = res.data;
       })["catch"](function (err) {
         console.log(err);
