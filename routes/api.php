@@ -20,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/posts', 'Api\PostController@index');
+
+// Si può usare sia id che post. ma sulle api è più corretto id mentre per il web post.
+Route::get('/posts/{id}', 'Api\PostController@show');
